@@ -1,0 +1,26 @@
+{
+  "name": "industry-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha ./tests.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keefers1030/industry-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keefers1030/industry-project/issues"
+  },
+  "homepage": "https://github.com/keefers1030/industry-project#readme",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "eslint": "^7.26.0",
+    "mocha": "^8.4.0",
+    "nodemon": "^2.0.7"
+  }
+}
