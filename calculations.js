@@ -1,9 +1,9 @@
-let currentIncome = document.getElementbyId()
-let incomeContributed = document.getElementbyId()
-let assetsReturn = document.getElementbyId()
-let currentAge = document.getElementbyId()
-let incomeIncrease = document.getElementbyId()
-let retirementAge = document.getElementbyId()
+let currentIncome = document.getElementbyId("currentIncome").value
+let incomeContributed = document.getElementbyId("incomeContributed").value
+let assetsReturn = document.getElementbyId("assetsReturn").value
+let currentAge = document.getElementbyId("currentAge").value
+let incomeIncrease = document.getElementbyId("incomeIncrease").value
+let retirementAge = document.getElementbyId("retirementAge").value
 
 
 // (currentIncome * incomeContributed) *
