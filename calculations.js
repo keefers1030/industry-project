@@ -1,19 +1,26 @@
-let currentIncome = document.getElementbyId()
-let incomeContributed = document.getElementbyId()
-let assetsReturn = document.getElementbyId()
-let currentAge = document.getElementbyId()
-let incomeIncrease = document.getElementbyId()
-let retirementAge = document.getElementbyId()
-
-
-// (currentIncome * incomeContributed) *
-// (((1 + assetsReturn)^(retirementAge - currentAge)) - ((1 + incomeIncrease)^(retirementAge - currentAge))
-// /
-// (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn)^(retirementAge - currentAge))) 
+let currentAge = document.getElementbyId("currentAge")
+let currentIncome = document.getElementbyId("currentIncome")
+let incomeIncrease = document.getElementbyId("incomeIncrease")
+let incomeContributed = document.getElementbyId("incomeContributed")
+let retirementAge = document.getElementbyId("retirementAge")
+let retirementSavings = document.getElementbyId("retirementSaving")
+let yearsRetired = document.getElementbyId("yearsRetired")
+let assetsReturn = document.getElementbyId("assetsReturn")
 
 
 const retirementBalance = () => {
+  (currentIncome * incomeContributed) *
+  (((1 + assetsReturn)^(retirementAge - currentAge)) - ((1 + incomeIncrease)^(retirementAge - currentAge))
+  /
+  (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn)^(retirementAge - currentAge))))
+}
+
+const retirementIncomePerYear = () => {
 
 }
 
-module.exports = { retirementBalance }
+const yearsWithRetirementIncome = () => {
+
+}
+
+module.exports = { retirementBalance, retirementIncomePerYear, yearsWithRetirementIncome }
