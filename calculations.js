@@ -7,12 +7,10 @@ let retirementSavings = document.getElementbyId("retirementSaving")
 let yearsRetired = document.getElementbyId("yearsRetired")
 let assetsReturn = document.getElementbyId("assetsReturn")
 
-
 const retirementBalance = () => {
   (currentIncome * incomeContributed) *
-  (((1 + assetsReturn)^(retirementAge - currentAge)) - ((1 + incomeIncrease)^(retirementAge - currentAge))
-  /
-  (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn)^(retirementAge - currentAge))))
+  (((1 + assetsReturn) ^ (retirementAge - currentAge)) - ((1 + incomeIncrease)^(retirementAge - currentAge)) /
+  (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn) ^ (retirementAge - currentAge))))
 }
 
 const retirementIncomePerYear = () => {
