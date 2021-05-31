@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 let describe = require('mocha').describe
 let it = require('mocha').it
-let retirementBalance = require('../calculations')
+let retirementBalance = require('/calculations')
 let expect = require('chai').expect
 
 describe('calculations', () => {
