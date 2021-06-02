@@ -21,11 +21,11 @@ const assetsReturn = .05
 const retirementBalance = () => {
   let balance = (
     (currentIncome * incomeContributed) *
-    (((1 + assetsReturn) ** (retirementAge - currentAge)) - ((1 + incomeIncrease) ^ (retirementAge - currentAge))) /
-    (assetsReturn - incomeIncrease) + (retirementSavings ** ((1 + assetsReturn) ^ (retirementAge - currentAge)))
+    (((1 + assetsReturn) ** (retirementAge - currentAge)) - ((1 + incomeIncrease) ** (retirementAge - currentAge))) /
+    (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn) ** (retirementAge - currentAge)))
   )
 
-  console.log((1 + assetsReturn) ** (retirementAge - currentAge))
+  console.log((1 + assetsReturn) ^ (retirementAge - currentAge))
 
   return balance.toFixed(2)
   // should be 2,132.061.78
