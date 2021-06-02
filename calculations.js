@@ -25,10 +25,7 @@ const retirementBalance = () => {
     (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn) ** (retirementAge - currentAge)))
   )
 
-  console.log((1 + assetsReturn) ^ (retirementAge - currentAge))
-
   return balance.toFixed(2)
-  // should be 2,132.061.78
 }
 
 const retirementIncomePerYear = () => {
