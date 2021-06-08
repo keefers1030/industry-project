@@ -16,7 +16,7 @@ const retirementAge = 65
 const retirementSavings = 200000
 const assetsReturn = .05
 
-// const yearsRetired = (retirementAge - currentAge)
+const yearsRetired = (90 - retirementAge)
 
 const retirementBalance = () => {
   let balance = (
@@ -30,6 +30,14 @@ const retirementBalance = () => {
 
 const retirementIncomePerYear = () => {
 
+  let negativeYearsRetired = -yearsRetired
+  let incomeBalance = (((assetsReturn * retirementBalance()) / (1 - (1 + assetsReturn) ** negativeYearsRetired)))
+
+
+  console.log('here')
+ console.log(retirementBalance())
+  return incomeBalance.toFixed(2)
+
 }
 
 const yearsWithRetirementIncome = () => {
@@ -38,4 +46,5 @@ const yearsWithRetirementIncome = () => {
 
 // calling function
 console.log(retirementBalance())
+console.log(retirementIncomePerYear())
 module.exports = { retirementBalance, retirementIncomePerYear, yearsWithRetirementIncome }

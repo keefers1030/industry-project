@@ -22,10 +22,10 @@ describe('calculations', () => {
       const assetsReturn = .05
 
       // call the function with the test data
-      const retirementBalance = retirementBalance(currentAge, currentIncome, incomeIncrease, incomeContributed, retirementAge, retirementSavings, assetsReturn)
+      let totalBalance = retirementBalance(currentAge, currentIncome, incomeIncrease, incomeContributed, retirementAge, retirementSavings, assetsReturn)
 
       // asserts what should be true
-      expect(retirementBalance).to.equal(2132061.78)
+      expect(totalBalance).to.equal(2132061.78)
     })
   })
 
