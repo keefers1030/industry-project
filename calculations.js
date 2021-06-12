@@ -38,10 +38,14 @@ const retirementIncomePerYear = () => {
 }
 
 const yearsWithRetirementIncome = () => {
-// IFERROR(LN((B18/(B18-B24*B17)))/LN(1+B17),"Never run out")
-  const yearsWithIncome = (Math.log((anticSpending / (anticSpending - retirementBalance() * assetsReturn))) / Math.log(1 + assetsReturn))
+  try {
+    const yearsWithIncome = (Math.log((anticSpending / (anticSpending - retirementBalance() * assetsReturn))) / Math.log(1 + assetsReturn))
 
-  return yearsWithIncome.toFixed(1)
+    return yearsWithIncome.toFixed(1)
+  }
+  catch (error) {
+    console.alert('You will not run out of money for retirement! Congratulations!')
+  }
 }
 
 // calling function
