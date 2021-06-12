@@ -32,16 +32,30 @@ describe('calculations', () => {
   describe('retirement income per year', () => {
     it('returns the amount distributed per year at retirement', () => {
       // setup test data
+      const retirementAge = 65
+      const assetsReturn = .05
+      const yearsRetired = (90 - retirementAge)
+      const negativeYearsRetired = -yearsRetired
+
       // call the function with the test data
+      let totalIncomePerYear = retirementIncomePerYear(negativeYearsRetired, assetsReturn, retirementBalance())
+
       // asserts what should be true
+      expect(totalIncomePerYear).to.equal(151275.02)
     })
   })
 
   describe('years with retirement income', () => {
     it('returns the amount of years until money runs out', () => {
       // setup test data
+      const assetsReturn = .05
+      const anticSpending = 120000
+
       // call the function with the test data
+      let totalYearsWithIncome = yearsWithRetirementIncome(anticSpending, retirementBalance(), assetsReturn)
+
       // asserts what should be true
+      expect(totalYearsWithIncome).to.equal(44.9)
 })
   })
 })

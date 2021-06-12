@@ -52,4 +52,5 @@ const yearsWithRetirementIncome = () => {
 console.log(retirementBalance())
 console.log(retirementIncomePerYear())
 console.log(yearsWithRetirementIncome())
+
 module.exports = { retirementBalance, retirementIncomePerYear, yearsWithRetirementIncome }
