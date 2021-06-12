@@ -18,6 +18,8 @@ const assetsReturn = .05
 
 const yearsRetired = (90 - retirementAge)
 
+const anticSpending = 120000
+
 const retirementBalance = () => {
   let balance = (
     (currentIncome * incomeContributed) *
@@ -29,22 +31,21 @@ const retirementBalance = () => {
 }
 
 const retirementIncomePerYear = () => {
-
   let negativeYearsRetired = -yearsRetired
   let incomeBalance = (((assetsReturn * retirementBalance()) / (1 - (1 + assetsReturn) ** negativeYearsRetired)))
 
-
-  console.log('here')
- console.log(retirementBalance())
   return incomeBalance.toFixed(2)
-
 }
 
 const yearsWithRetirementIncome = () => {
+// IFERROR(LN((B18/(B18-B24*B17)))/LN(1+B17),"Never run out")
+  const yearsWithIncome = (Math.log((anticSpending / (anticSpending - retirementBalance() * assetsReturn))) / Math.log(1 + assetsReturn))
 
+  return yearsWithIncome.toFixed(1)
 }
 
 // calling function
 console.log(retirementBalance())
 console.log(retirementIncomePerYear())
+console.log(yearsWithRetirementIncome())
 module.exports = { retirementBalance, retirementIncomePerYear, yearsWithRetirementIncome }
