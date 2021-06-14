@@ -5,7 +5,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .header {
   display: flex;
   -webkit-box-pack: center;
@@ -23,17 +22,14 @@ body {
   text-transform: uppercase;
   padding: 16px 8px 16px 50px;
 }
-
 .logo {
   padding: 16px 8px 16px 0px;
 }
-
 .container1{
   display: flex;
   -webkit-box-align: center;
   align-items: center;
 }
-
 .space {
   display: flex;
   -webkit-box-pack: justify;
@@ -44,7 +40,6 @@ body {
   width: 100%;
   padding: 0px 15px;
 }
-
 .nav a,
 a:hover,
 a:visited {
@@ -54,20 +49,16 @@ a:visited {
   text-decoration: none;
   padding: 12px 8px;
 }
-
 .nav{
   min-width: 500px;
 }
-
 .login{
   cursor: pointer;
   color: rgb(255, 255, 255);
   text-decoration: none;
   padding: 12px 0px;
   min-width: 60px;
-
 }
-
 .login a,
 a:hover,
 a:visited {
@@ -77,7 +68,6 @@ a:visited {
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
-
 .start {
 cursor: pointer;
 border-radius: 24px;
@@ -93,12 +83,11 @@ outline: transparent solid 1px;
 padding: 8px 0px 8px 0px;
 font-size: inherit;
 font-weight: inherit;
-margin: 8px 0px 0px 15px;
+margin: 8px 0px 8px 15px;
 min-width: 150px;
 color: rgb(255, 255, 255);
 text-decoration: none;
 }
-
 .start a,
 a:hover,
 a:visited {
@@ -108,5 +97,51 @@ a:visited {
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
+.container2 {
+    background-color: rgb(0, 173, 238);
+    margin: 0;
+    padding: 0;
+}
 
+.container2 h1 {
+    color: white;
+    text-align: center;
+}
 
+.container3 {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    /* max-width: 450px; */
+    appearance: none;
+    width: 100%;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    justify-content: center;  
+}
+
+.container3 input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
