@@ -12,6 +12,7 @@ const currentAge = 40
 const currentIncome = 100000
 const incomeIncrease = .02
 const incomeContributed = .25
+// could also make it a number rather than a percentage 
 const retirementAge = 65
 const retirementSavings = 200000
 const assetsReturn = .05
@@ -44,7 +45,7 @@ const yearsWithRetirementIncome = () => {
     return yearsWithIncome.toFixed(1)
   }
   catch (error) {
-    console.alert('You will not run out of money for retirement! Congratulations!')
+    console.alert('Put error message here', error) //500 status error
   }
 }
 
