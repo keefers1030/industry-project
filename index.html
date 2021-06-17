@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <html lang="en">
-    <link rel="icon" type="image/png" href="/favicon.png"/>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
@@ -13,14 +12,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Self Retirement Calculcator</title>
+        <link rel="icon" type="image/png" href="images/favicon.ico">
 </head>
-
 <body>
-    <div class="header">
-        <div class="container1">
-        <div class="logo">
-            <img src="images/Self_Logo_Header.svg" alt="Self inc logo">
-        </div>
+    <div clas="container1">
+        <div class="header">
+            <div class="logo">
+                    <img src="images/Self_Logo_Header.svg" alt="Self inc logo">
+            </div>
         <div class="nav">
             <a href="/https://www.self.inc/">Learn v</a>
             <a href="#">About v</a>
@@ -28,13 +27,71 @@
             <a href="#">Get $10</a>
             <a href="#">Help</a>
         </div>
+        <div class="space">
         </div>
-                <div class="space"></div>
-                <div class="login">
-                    <a href="/#/">Log In</a>    
-                </div>
-                <div class="start">
-                    <a href="/#/">Start Building Today</a>  
-                </div>
-            </div>
+        <div class="login">
+            <a href="/#/">Log In</a>    
+        </div>
+        <div class="start">
+            <a href="/#/">Start Building Today</a>  
+        </div>
     </div>
+
+
+    <div class="container2">
+        <h1> Plan Your Retirement</h1>
+    </div>
+    <div class="container3">
+        <form action="save.html" method="post" id="save">
+            <h2>Current Age</h2>
+            <input type="number" placeholder="Current Age">
+            <h2>Expected Retirement Age</h2>
+            <input type="number" placeholder="Retirement Age">
+            <h2>Current income</h2>
+            <input type="number" placeholder="Income">
+            <h2>Income increase</h2>
+            <input type="number" value="20">
+            <div>
+            <h2>Income contributed</h2>
+            <p>This is a percentage of your yearly income<p>
+            <input type="number" placeholder="Income contributed">
+            </div>
+            
+            <h2>Current Savings</h2>
+            <input type="number" value="20">
+            <h2>Anticipated Spending in Retirement</h2>
+            <p>A good rule of thumb is that you will want to spend about 80% of your highest earning year</p>
+            <input type="number" value="120000">
+            <div>
+                <input type="submit" value="Start Saving">
+            </div>
+        </form>
+        <p>Questions? Visit frequently asked questions.
+
+</p>
+
+
+        <div class="footer">
+            <p>Footer info</p>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+                <!-- <div class="slidecontainer">
+                <input type="range" min="25" max="100" value="50" class="slider" id="myRange">
+                <p>Income: <span id="age"></span>%</p>
+                </div>
+
+                <script>
+                var slider = document.getElementById("myRange");
+                var output = document.getElementById("age");
+                output.innerHTML = slider.value;
+
+                slider.oninput = function() {
+                output.innerHTML = this.value;
+                }
+                </script>
+                </div> -->
