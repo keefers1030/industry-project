@@ -156,8 +156,12 @@ font-style: bold;
   border-image: initial;
 }
 
+.boldp{
+  font-weight: bold;
+  color: rgb(0, 173, 238);
+}
+
 .footer {
-  position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
