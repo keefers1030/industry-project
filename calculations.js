@@ -1,21 +1,21 @@
 /* eslint-disable max-len */
-// let currentAge = document.getElementbyId("currentAge")
-// let currentIncome = document.getElementbyId("currentIncome")
-// let incomeIncrease = parsefloat(document.getElementbyId("incomeIncrease")) / 100
-// let incomeContributed = parsefloat(document.getElementbyId("incomeContributed")) / 100
-// let retirementAge = document.getElementbyId("retirementAge")
-// let retirementSavings = document.getElementbyId("retirementSavings")
-// let assetsReturn = document.getElementbyId("assetsReturn")
+
+let currentAge = document.getElementById('currentAge').value
+let currentIncome = document.getElementById('currentIncome').value
+let incomeIncrease = document.getElementById('incomeIncrease') / 100
+let incomeContributed = document.getElementById('incomeContributed') / 100
+let retirementAge = document.getElementById('retirementAge').vaule
+let retirementSavings = document.getElementById('retirementSavings').value
+let assetsReturn = document.getElementById('assetsReturn').value
 
 // test data
-const currentAge = 40
-const currentIncome = 100000
-const incomeIncrease = .02
-const incomeContributed = .25
-// could also make it a number rather than a percentage 
-const retirementAge = 65
-const retirementSavings = 200000
-const assetsReturn = .05
+// const currentAge = 40
+// const currentIncome = 100000
+// const incomeIncrease = .02
+// const incomeContributed = .25
+// const retirementAge = 65
+// const retirementSavings = 200000
+// const assetsReturn = .05
 
 const yearsRetired = (90 - retirementAge)
 
@@ -31,6 +31,8 @@ const retirementBalance = () => {
   return balance.toFixed(2)
 }
 
+document.getElementById('retirementBalanceButton').addEventListener("click", retirementBalance)
+
 const retirementIncomePerYear = () => {
   let negativeYearsRetired = -yearsRetired
   let incomeBalance = (((assetsReturn * retirementBalance()) / (1 - (1 + assetsReturn) ** negativeYearsRetired)))
@@ -45,7 +47,7 @@ const yearsWithRetirementIncome = () => {
     return yearsWithIncome.toFixed(1)
   }
   catch (error) {
-    console.alert('Put error message here', error) //500 status error
+    console.alert('Put error message here', error) // 500 status error
   }
 }
 

@@ -4,6 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <html lang="en">
+    <script src="calculations.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
@@ -43,30 +44,29 @@
     <div class="container3">
         <form action="save.html" method="post" id="save">
             <h2>Current Age</h2>
-            <input type="number" id="currentAge" placeholder="Current Age">
+            <input type="number" id="currentAge" placeholder="Current Age"/>
             <h2>Expected Retirement Age</h2>
-            <input type="number" id="retirementAge" placeholder="Retirement Age">
+            <input type="number" id="retirementAge" placeholder="Retirement Age"/>
             <h2>Current income</h2>
-            <input type="number" id="currentIncome" placeholder="Income">
+            <input type="number" id="currentIncome" placeholder="Income"/>
             <h2>Income increase</h2>
-            <input type="number" id="incomeIncrease" value="20">
+            <input type="number" id="incomeIncrease" value="20"/>
             <div>
             <h2>Income contributed</h2>
             <p>This is a percentage of your yearly income<p>
-            <input type="number" id="incomeContributed" placeholder="Income contributed">
+            <input type="number" id="incomeContributed" placeholder="Income contributed"/>
             </div>
             <h2>Current Savings</h2>
-            <input type="number" id="retirementSavings" value="20">
+            <input type="number" id="retirementSavings" value="0"/>
             <h2>Anticipated Spending in Retirement</h2>
             <p>A good rule of thumb is that you will want to spend about 80% of your highest earning year</p>
-            <input type="number" id="anticSpending" value="120000">
+            <input type="number" id="anticSpending" value="120000"/>
             <div>
-            <input type="submit" class="startsaving" value="Start Saving">
+            <input type="button" class="startsaving" value="Start Saving" id="retirementBalanceButton" onclick="retirementBalance()"/>
             </div>
         </form>
+
         <p>Questions? Visit <b class="boldp">frequently asked questions</b>.</p>
-
-
         <div class="footer">
             <p>Footer info</p>
         </div>
