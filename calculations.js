@@ -1,12 +1,14 @@
 /* eslint-disable max-len */
 
-let currentAge = document.getElementById('currentAge')
-let currentIncome = document.getElementById('currentIncome')
-let incomeIncrease = (document.getElementById('incomeIncrease')) / 100
-let incomeContributed = (document.getElementById('incomeContributed')) / 100
-let retirementAge = document.getElementById('retirementAge')
-let retirementSavings = document.getElementById('retirementSavings')
-let assetsReturn = document.getElementById('assetsReturn')
+let currentAge = document.getElementById('currentAge').value
+let currentIncome = document.getElementById('currentIncome').value
+let incomeIncrease = (document.getElementById('incomeIncrease').value)
+let incomeContributed = (document.getElementById('incomeContributed').value)
+let retirementAge = document.getElementById('retirementAge').value
+let retirementSavings = document.getElementById('retirementSavings').value
+let assetsReturn = .05
+
+// let assetsReturn = document.getElementById('assetsReturn').value
 
 // test data
 // const currentAge = 40
@@ -27,13 +29,14 @@ const retirementBalance = () => {
     (((1 + assetsReturn) ** (retirementAge - currentAge)) - ((1 + incomeIncrease) ** (retirementAge - currentAge))) /
     (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn) ** (retirementAge - currentAge)))
   )
-  
-  console.log(balance)
 
   document.getElementById('balance').innerHTML = balance.toFixed(2)
 
-  return balance.toFixed(2)
+  console.log(currentAge)
+
+  // return balance.toFixed(2)
 }
+
 const retirementIncomePerYear = () => {
   let negativeYearsRetired = -yearsRetired
   let incomeBalance = (((assetsReturn * retirementBalance()) / (1 - (1 + assetsReturn) ** negativeYearsRetired)))
