@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 
-let currentAge = document.getElementById('currentAge').value
-let currentIncome = document.getElementById('currentIncome').value
-let incomeIncrease = document.getElementById('incomeIncrease') / 100
-let incomeContributed = document.getElementById('incomeContributed') / 100
-let retirementAge = document.getElementById('retirementAge').vaule
-let retirementSavings = document.getElementById('retirementSavings').value
-let assetsReturn = document.getElementById('assetsReturn').value
+let currentAge = document.getElementById('currentAge')
+let currentIncome = document.getElementById('currentIncome')
+let incomeIncrease = (document.getElementById('incomeIncrease')) / 100
+let incomeContributed = (document.getElementById('incomeContributed')) / 100
+let retirementAge = document.getElementById('retirementAge')
+let retirementSavings = document.getElementById('retirementSavings')
+let assetsReturn = document.getElementById('assetsReturn')
 
 // test data
 // const currentAge = 40
@@ -27,12 +27,13 @@ const retirementBalance = () => {
     (((1 + assetsReturn) ** (retirementAge - currentAge)) - ((1 + incomeIncrease) ** (retirementAge - currentAge))) /
     (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn) ** (retirementAge - currentAge)))
   )
+  
+  console.log(balance)
+
+  document.getElementById('balance').innerHTML = balance.toFixed(2)
 
   return balance.toFixed(2)
 }
-
-document.getElementById('retirementBalanceButton').addEventListener("click", retirementBalance)
-
 const retirementIncomePerYear = () => {
   let negativeYearsRetired = -yearsRetired
   let incomeBalance = (((assetsReturn * retirementBalance()) / (1 - (1 + assetsReturn) ** negativeYearsRetired)))
@@ -51,9 +52,15 @@ const yearsWithRetirementIncome = () => {
   }
 }
 
-// calling function
-console.log(retirementBalance())
-console.log(retirementIncomePerYear())
-console.log(yearsWithRetirementIncome())
 
-module.exports = { retirementBalance, retirementIncomePerYear, yearsWithRetirementIncome }
+
+// calling function
+// console.log(retirementBalance())
+// console.log(retirementIncomePerYear())
+// console.log(yearsWithRetirementIncome())
+
+// module.exports = {
+//   retirementBalance,
+//   retirementIncomePerYear,
+//   yearsWithRetirementIncome
+// }
