@@ -51,7 +51,7 @@
             <h2>Current income</h2>
             <input type="number" id="currentIncome" value="100000" placeholder="Income"/>
             <h2>Income increase</h2>
-            <input type="number" id="incomeIncrease" value="20"/>
+            <input type="number" id="incomeIncrease" value="2"/>
             <div>
             <h2>Income contributed</h2>
             <p>This is a percentage of your yearly income<p>
@@ -62,10 +62,17 @@
             <h2>Anticipated Spending in Retirement</h2>
             <p>A good rule of thumb is that you will want to spend about 80% of your highest earning year</p>
             <input type="number" id="anticSpending" value="120000"/>
-            <div>
-            <!-- <input type="button" class="startsaving" value="Start Saving" id="retirementBalanceButton"/> -->
+            <div><br/>
             <button class="button" type="button" onclick="retirementBalance()">Calculate</button>
-            <h2>Result:</h2><h2 id="balance"></h2>
+            <h2>Retirement Balance:</h2><h2 id="balance"></h2>
+            
+            <button class="button" type="button" onclick="retirementIncomePerYear()">Calculate</button>
+            <h2>Retirement Income Per Year:</h2><h2 id="incomeBalance"></h2>
+
+            <button class="button" type="button" onclick="yearsWithRetirementIncome()">Calculate</button>
+            <h2>Years with income:</h2><h2 id="yearsWithIncome"></h2>
+
+
         </form>
     </div>
 

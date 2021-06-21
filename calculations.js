@@ -2,22 +2,13 @@
 
 let currentAge = document.getElementById('currentAge').value
 let currentIncome = document.getElementById('currentIncome').value
-let incomeIncrease = (document.getElementById('incomeIncrease').value)
-let incomeContributed = (document.getElementById('incomeContributed').value)
+let incomeIncrease = (document.getElementById('incomeIncrease').value) / 100
+let incomeContributed = (document.getElementById('incomeContributed').value) / 100
 let retirementAge = document.getElementById('retirementAge').value
 let retirementSavings = document.getElementById('retirementSavings').value
 let assetsReturn = .05
 
 // let assetsReturn = document.getElementById('assetsReturn').value
-
-// test data
-// const currentAge = 40
-// const currentIncome = 100000
-// const incomeIncrease = .02
-// const incomeContributed = .25
-// const retirementAge = 65
-// const retirementSavings = 200000
-// const assetsReturn = .05
 
 const yearsRetired = (90 - retirementAge)
 
@@ -32,14 +23,14 @@ const retirementBalance = () => {
 
   document.getElementById('balance').innerHTML = balance.toFixed(2)
 
-  console.log(currentAge)
-
-  // return balance.toFixed(2)
+  return balance.toFixed(2)
 }
 
 const retirementIncomePerYear = () => {
   let negativeYearsRetired = -yearsRetired
   let incomeBalance = (((assetsReturn * retirementBalance()) / (1 - (1 + assetsReturn) ** negativeYearsRetired)))
+
+  document.getElementById('incomeBalance').innerHTML = incomeBalance.toFixed(2)
 
   return incomeBalance.toFixed(2)
 }
@@ -47,6 +38,8 @@ const retirementIncomePerYear = () => {
 const yearsWithRetirementIncome = () => {
   try {
     const yearsWithIncome = (Math.log((anticSpending / (anticSpending - retirementBalance() * assetsReturn))) / Math.log(1 + assetsReturn))
+
+    document.getElementById('yearsWithIncome').innerHTML = yearsWithIncome.toFixed(1)
 
     return yearsWithIncome.toFixed(1)
   }
@@ -56,6 +49,14 @@ const yearsWithRetirementIncome = () => {
 }
 
 
+// test data
+// const currentAge = 40
+// const currentIncome = 100000
+// const incomeIncrease = .02
+// const incomeContributed = .25
+// const retirementAge = 65
+// const retirementSavings = 200000
+// const assetsReturn = .05
 
 // calling function
 // console.log(retirementBalance())
