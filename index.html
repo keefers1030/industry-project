@@ -44,25 +44,46 @@
 
     <div class="container3">
         <form>
-            <h2>Current Age</h2>
+        <div class="inputs">
+            <div class="i1">
+            <h2>Current age</h2>
 		    <input type="number" id="currentAge" value="40" placeholder="Age in Years">
-            <h2>Expected Retirement Age</h2>
+            </div>
+
+            <div class="i2">
+            <h2>Retirement age</h2>
             <input type="number" id="retirementAge" value= "65" placeholder="Retirement Age"/>
+            </div>
+
+            <div class="i3">
             <h2>Current income</h2>
             <input type="number" id="currentIncome" value="100000" placeholder="Income"/>
+            </div>
+
+            <div>
             <h2>Income increase</h2>
             <input type="number" id="incomeIncrease" value="2"/>
+            </div>
+
             <div>
             <h2>Income contributed</h2>
-            <p>This is a percentage of your yearly income<p>
             <input type="number" id="incomeContributed" value="25" />
             </div>
+
+            <div>
             <h2>Current Savings</h2>
             <input type="number" id="retirementSavings" value="200000"/>
+            </div>
+
+            <div>
             <h2>Anticipated Spending in Retirement</h2>
-            <p>A good rule of thumb is that you will want to spend about 80% of your highest earning year</p>
             <input type="number" id="anticSpending" value="120000"/>
-            <div><br/>
+            </div>
+
+        </div>        
+                
+        <br/>
+            <div>
             <button class="button" type="button" onclick="retirementBalance()">Calculate</button>
             <h2>Retirement Balance:</h2><h2 id="balance"></h2>
             
@@ -71,15 +92,12 @@
 
             <button class="button" type="button" onclick="yearsWithRetirementIncome()">Calculate</button>
             <h2>Years with income:</h2><h2 id="yearsWithIncome"></h2>
-
-
         </form>
     </div>
 
-
         <p>Questions? Visit <b class="boldp">frequently asked questions</b>.</p>
         <div class="footer">
-            <p>Footer info</p>
+            <p>Self. Financial 2021</p>
         </div>
     </div>
 
@@ -87,20 +105,3 @@
 
 </body>
 </html>
-
-
-                <!-- <div class="slidecontainer">
-                <input type="range" min="25" max="100" value="50" class="slider" id="myRange">
-                <p>Income: <span id="age"></span>%</p>
-                </div>
-
-                <script>
-                var slider = document.getElementById("myRange");
-                var output = document.getElementById("age");
-                output.innerHTML = slider.value;
-
-                slider.oninput = function() {
-                output.innerHTML = this.value;
-                }
-                </script>
-                </div> -->

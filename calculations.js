@@ -48,7 +48,6 @@ const yearsWithRetirementIncome = () => {
   }
 }
 
-
 // test data
 // const currentAge = 40
 // const currentIncome = 100000

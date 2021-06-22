@@ -8,6 +8,7 @@ body {
 
 }
 
+
 .header {
   display: flex;
   -webkit-box-pack: center;
@@ -114,72 +115,52 @@ a:visited {
   color: white;
   text-align: center;
   font-size: 34px;
-font-style: bold;
+  font-style: bold;
 }
 
 .container3 {
   display: flex;
   flex-direction: column;
-  -webkit-box-align: center;
   align-items: center;
   background-color: white;
   width: 100%;
-  /* max-width: 450px; */
   appearance: none;
-  width: 100%;
   outline: none;
-  -webkit-tap-highlight-color: transparent;
   justify-content: center;
 }
 
-.container3 input {
-  -webkit-writing-mode: horizontal-tb !important;
-  text-rendering: auto;
-  color: -internal-light-dark(black, white);
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: start;
-  appearance: auto;
-  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
-  -webkit-rtl-ordering: logical;
-  cursor: text;
-  margin: 0em;
-  font: 400 13.3333px Arial;
-  padding: 1px 2px;
-  border-width: 2px;
-  border-style: inset;
-  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-  border-image: initial;
+.container3 #i2{
+  order: 2;
+}
+.container3 h2 {
+  color: rgb(59, 59, 59);
 }
 
-input[type=button], button {
-cursor: pointer;
-font-size: 16px;
-font-weight: bold;
-border-radius: 24px;
-border: 0px;
-padding: 13px 16px;
-margin-top: 0px;
-display: block;
-box-sizing: border-box;
-text-align: center;
-text-decoration: none;
-background-color: rgb(255, 140, 0);
-color: rgb(255, 255, 255);
-box-shadow: rgb(133 127 120 / 24%) 0px 8px 24px;
-outline: transparent solid 1px;
-margin-bottom: 0px;
-align-self: stretch;
-line-height: 1.4;
-font-family: 'Montserrat',sans-serif;
--webkit-font-smoothing: antialiased;
+input[type=button],
+button {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 24px;
+  border: 0px;
+  padding: 13px 16px;
+  margin-top: 0px;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgb(255, 140, 0);
+  color: rgb(255, 255, 255);
+  box-shadow: rgb(133 127 120 / 24%) 0px 8px 24px;
+  outline: transparent solid 1px;
+  margin-bottom: 0px;
+  align-self: stretch;
+  line-height: 1.4;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-.boldp{
+.boldp {
   font-weight: bold;
   color: rgb(0, 173, 238);
 }
@@ -191,4 +172,15 @@ font-family: 'Montserrat',sans-serif;
   background-color: #eaeaea;
   color: white;
   text-align: center;
+}
+
+input[type=number]{
+  font-family: 'Montserrat', sans-serif;
+  color:rgb(59, 59, 59);
+  border-radius: .5rem;
+  padding: .5rem;
+  max-width: 300px;
+  font-size: 16px;
+  background-color: #f3f0f0;
+  border: none;
 }
