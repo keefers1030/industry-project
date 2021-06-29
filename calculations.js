@@ -15,22 +15,37 @@ const retirementBalance = () => {
     (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn) ** (retirementAge - currentAge)))
   )
 
-  document.getElementById('balance').innerHTML = balance.toFixed(2)
+//   document.getElementById('balance').innerHTML = balance.toFixed(2)
 
-  return balance.toFixed(2)
+//   return balance.toFixed(2)
+// }
+
+  if (isNaN(balance)) {
+    document.getElementById('balance').innerHTML = ' '
+  }
+  else {
+    document.getElementById('balance').innerHTML = balance.toFixed(2)
+
+    return balance.toFixed(2)
+  }
 }
 
 const retirementIncomePerYear = () => {
   let retirementAge = document.getElementById('retirementAge').value
   let yearsRetired = (90 - retirementAge)
   let negativeYearsRetired = -yearsRetired
-    let assetsReturn = (document.getElementById('assetsReturn').value) / 100
+  let assetsReturn = (document.getElementById('assetsReturn').value) / 100
 
   let incomeBalance = (((assetsReturn * retirementBalance()) / (1 - (1 + assetsReturn) ** negativeYearsRetired)))
 
-  document.getElementById('incomeBalance').innerHTML = incomeBalance.toFixed(2)
+  if (isNaN(incomeBalance)) {
+    document.getElementById('incomeBalance').innerHTML = ' '
+  }
+  else {
+    document.getElementById('incomeBalance').innerHTML = incomeBalance.toFixed(2)
 
-  return incomeBalance.toFixed(2)
+    return incomeBalance.toFixed(2)
+  }
 }
 
 const yearsWithRetirementIncome = () => {
@@ -49,12 +64,13 @@ const yearsWithRetirementIncome = () => {
   }
 }
 
-
 const retirementCalculations = () => {
   retirementBalance()
   retirementIncomePerYear()
   yearsWithRetirementIncome()
 }
+
+const retirementBalanceObject = retirementBalance()
 
 // calling function
 console.log(retirementBalance())
@@ -62,9 +78,8 @@ console.log(retirementIncomePerYear())
 console.log(yearsWithRetirementIncome())
 console.log(retirementCalculations())
 
+// const assetsReturn = .05
+// const retirementAge = 78
 console.log('here')
-const assetsReturn = .05
-const retirementAge = 78
-
-console.log(retirementIncomePerYear(assetsReturn, anticSpending))
+console.log(retirementBalanceObject)
 
