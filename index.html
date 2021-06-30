@@ -13,34 +13,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Self Retirement Calculcator</title>
     <link rel="icon" type="image/png" href="images/favicon.ico">
-<script>
-window.onload = function () {
 
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	theme: "light2",
-	title:{
-		text: "Retirement Balance"
-	},
-    axisX: {
-        title: "age"
-    },
-    axisY: {
-        title: "$ saved"
-    },
-	data: [{        
-		type: "line",
-      	indexLabelFontSize: 16,
-		dataPoints: [
-			{ y: 15000 , x: 35 , indexLabel: "\u2193 current savings",markerColor: "orange", markerType: "cross" },
-            { y: 85000, x: 72 , indexLabel: "\u2191 retirement balance",markerColor: "orange", markerType: "triangle" },
-		]
-	}]
-});
-chart.render();
+<script type="text/javascript">
+        window.onload = function() {
+            var dps = []; //dataPoints. 
 
-}
-</script>
+            var chart = new CanvasJS.Chart("chartContainer", {
+                title: {
+                    text: "Retirement Balance"
+                },
+                axisX: {title: "age"},
+                axisY: {title: "$ Savings"},
+                data: [{
+                    type: "line",
+                    dataPoints: dps
+                }]
+            });
+
+            function addDataPointsAndRender() {
+                xValue = Number(document.getElementById("currentAge").value);
+                yValue = Number(document.getElementById("retirementSavings").value);
+                secondXValue = Number(document.getElementById("retirementAge").value);
+                secondYValue = 100000;
+                dps.push({
+                    x: xValue,
+                    y: yValue
+                },
+                {
+                    x: secondXValue,
+                    y: secondYValue
+                }
+                ),
+                chart.render();
+            }
+
+            var renderButton = document.getElementById("renderButton");
+            renderButton.addEventListener("click", addDataPointsAndRender);
+        }
+    </script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 
 <body>
@@ -101,9 +112,12 @@ chart.render();
             <span class="valuePadding">$<input type="number" id="anticSpending" placeholder="anticipated spending"/></span>
             </div>   
         <div class="container4">
-                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
+                <!-- X Value:
+                <input id="xValue" type="number" step="any" placeholder="Enter X-Value"> Y Value:
+                <input id="yValue" type="number" step="any" placeholder="Enter Y-Value"> -->
+                <!-- <button type="button" id="renderButton">Add DataPoint & Render</button> -->
+                <div id="chartContainer" style="height: 270px; width: 100%;">
+                </div>
                 <div class="live-data">
 			        <h3><label id="yearsWithIncome">...</label> years with retirement income</h3> 
 		            <h3>You can expect to save $<label  id="balance">...</label> 
@@ -114,8 +128,12 @@ chart.render();
 
             <div class= "submit">
              <h2 id="balance"></h2>
-            <button class="button" type="button" onclick="retirementCalculations()">Calculate</button>
+            <button class="button" id="renderButton" type="button" onclick="retirementCalculations()">Calculate</button>
             </div> 
+
+            <div class="chart-test">
+
+            </div>
 </main>
 
     <div class="questions">
