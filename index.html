@@ -13,45 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Self Retirement Calculcator</title>
     <link rel="icon" type="image/png" href="images/favicon.ico">
-
-<script type="text/javascript">
-        window.onload = function() {
-            var dps = []; //dataPoints. 
-
-            var chart = new CanvasJS.Chart("chartContainer", {
-                title: {
-                    text: "Retirement Balance"
-                },
-                axisX: {title: "age"},
-                axisY: {title: "$ Savings"},
-                data: [{
-                    type: "line",
-                    dataPoints: dps
-                }]
-            });
-
-            function addDataPointsAndRender() {
-                xValue = Number(document.getElementById("currentAge").value);
-                yValue = Number(document.getElementById("retirementSavings").value);
-                secondXValue = Number(document.getElementById("retirementAge").value);
-                secondYValue = 100000;
-                dps.push({
-                    x: xValue,
-                    y: yValue
-                },
-                {
-                    x: secondXValue,
-                    y: secondYValue
-                }
-                ),
-                chart.render();
-            }
-
-            var renderButton = document.getElementById("renderButton");
-            renderButton.addEventListener("click", addDataPointsAndRender);
-        }
-    </script>
-    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 
 <body>
@@ -84,44 +45,36 @@
     </nav>
 
     <main class="main">
-        <h4>It is never too early to start planning for your retirement. 
-            <br/>
-            Use our retirement planner below to start saving.</h4>
     <div class="container3">
         <form>
-        <!-- <div class="inputs"> -->
             <div class="i1">
             <h2>Current age</h2>
 		    <span class="valuePadding"><input type="number" id="currentAge" max="100" placeholder="age in years"/></span>
-            <h2>Retirement age</h2>
+            <h2 data-tooltip="The age at which you wish to retire">Retirement age</h2>
             <span class="valuePadding"><input type="number" id="retirementAge" max="120" placeholder="age at retirement"/></span>
             <h2>Current income</h2>
             <span class="valuePadding">$<input type="number" id="currentIncome" placeholder="current income"/></span>
-            <h2>Income increase</h2>
-            <span class="valuePadding"><input type="number" id="incomeIncrease" class="percentage" max="100" placeholder="income increase"/>%</span>
+            <h2 data-tooltip="Your income might increase about 2% each year">Income increase</h2>
+            <span class="valuePadding"><input type="number" value="2" id="incomeIncrease" class="percentage" max="100" placeholder="income increase"/>%</span>
             </div>
 
             <div class="i2">
-            <h2>Assets return</h2>
-            <span class="valuePadding"><input type="number" id="assetsReturn" class="percentage" max="100" placeholder="assets return"/>%</span>
-            <h2>Income contributed</h2>
-            <span class="valuePadding"><input type="number" id="incomeContributed" class="percentage" max="100" placeholder="income contributed"/>%</span>
             <h2>Current savings</h2>
             <span class="valuePadding">$<input type="number" id="retirementSavings" placeholder="current savings"/></span>
-            <h2>Anticipated Spending</h2>
+            <h2 data-tooltip="The % of your income you are contributing to retirement">Income contributed</h2>
+            <span class="valuePadding"><input type="number" id="incomeContributed" class="percentage" max="100" placeholder="income contributed"/>%</span>
+             <h2 data-tooltip="The average % of your assets (ie stocks & bonds) is 5%">Assets return</h2>
+            <span class="valuePadding"><input type="number" value="5" id="assetsReturn" class="percentage" max="100" placeholder="assets return"/>%</span>
+            <h2 data-tooltip="The amount you think you will spend yearly during retirement">Anticipated Spending</h2>
             <span class="valuePadding">$<input type="number" id="anticSpending" placeholder="anticipated spending"/></span>
             </div>   
         <div class="container4">
-                <!-- X Value:
-                <input id="xValue" type="number" step="any" placeholder="Enter X-Value"> Y Value:
-                <input id="yValue" type="number" step="any" placeholder="Enter Y-Value"> -->
-                <!-- <button type="button" id="renderButton">Add DataPoint & Render</button> -->
                 <div id="chartContainer" style="height: 270px; width: 100%;">
                 </div>
                 <div class="live-data">
 			        <h3><label id="yearsWithIncome">...</label> years with retirement income</h3> 
-		            <h3>You can expect to save $<label  id="balance">...</label> 
-                    <br>which will give you $<label  id="incomeBalance">...</label> per year during retirement
+		            <h3>You can expect to save a total of $<label  id="balance">...</label> for retirement
+                    <br>which will give you $<label  id="incomeBalance">...</label> to spend each year
                     </div>
             </div>
         </form>
@@ -129,12 +82,8 @@
             <div class= "submit">
              <h2 id="balance"></h2>
             <button class="button" id="renderButton" type="button" onclick="retirementCalculations()">Calculate</button>
-            </div> 
-
-            <div class="chart-test">
-
             </div>
-</main>
+    </main>
 
     <div class="questions">
         <p>Questions? Visit <b class="boldp">frequently asked questions</b>.</p>
@@ -145,7 +94,47 @@
         </footer>
 
     <script src="calculations.js"></script>
+        <script type="text/javascript">
+        window.onload = function() {
+            
+            var dps = []
 
+            var chart = new CanvasJS.Chart("chartContainer", {
+                title: {
+                    text: "Retirement Balance",
+                    fontFamily: "Montserrat"
+                },
+                axisX: {title: "Age"},
+                axisY: {title: "Savings"},
+                data: [{
+                    type: "line",
+                    dataPoints: dps
+                }]
+            });
+
+            function addDataPointsAndRender() {
+                xValue = Number(document.getElementById("currentAge").value);
+                yValue = Number(document.getElementById("retirementSavings").value);
+                secondXValue = Number(document.getElementById("retirementAge").value);
+                secondYValue = Number(document.getElementById("balance").value);
+                dps.push({
+                    x: xValue,
+                    y: yValue, markerColor: "orange", markerType: "triangle", lineColor: "#FF8C00"
+                },
+                {
+                    x: secondXValue,
+                    y: secondYValue, markerColor: "orange", markerType: "triangle"
+                }
+                ),
+                chart.render();
+            }
+
+
+            var renderButton = document.getElementById("renderButton");
+            renderButton.addEventListener("click", addDataPointsAndRender);
+        }
+    </script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     
 </body>
 </html>

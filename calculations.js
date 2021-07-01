@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 
+// the retirementBalance function calculates the entire balance the user will have saved at the age of retirement
 const retirementBalance = () => {
   let currentAge = document.getElementById('currentAge').value
   let currentIncome = document.getElementById('currentIncome').value
@@ -15,11 +16,6 @@ const retirementBalance = () => {
     (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn) ** (retirementAge - currentAge)))
   )
 
-//   document.getElementById('balance').innerHTML = balance.toFixed(2)
-
-//   return balance.toFixed(2)
-// }
-
   if (isNaN(balance)) {
     document.getElementById('balance').innerHTML = ' '
   }
@@ -30,6 +26,7 @@ const retirementBalance = () => {
   }
 }
 
+// the retirementIncomePerYear function calculates the yearly income that the user will be able to spend from retirement to death (or age 90)
 const retirementIncomePerYear = () => {
   let retirementAge = document.getElementById('retirementAge').value
   let yearsRetired = (90 - retirementAge)
@@ -48,6 +45,7 @@ const retirementIncomePerYear = () => {
   }
 }
 
+// the yearsWithRetirementIncome function calculates the number of years the user will have income
 const yearsWithRetirementIncome = () => {
   let assetsReturn = (document.getElementById('assetsReturn').value) / 100
   let anticSpending = document.getElementById('anticSpending').value
@@ -55,7 +53,7 @@ const yearsWithRetirementIncome = () => {
   const yearsWithIncome = (Math.log((anticSpending / (anticSpending - retirementBalance() * assetsReturn))) / Math.log(1 + assetsReturn))
 
   if (isNaN(yearsWithIncome)) {
-    document.getElementById('yearsWithIncome').innerHTML = '>90'
+    document.getElementById('yearsWithIncome').innerHTML = ''
   }
   else {
     document.getElementById('yearsWithIncome').innerHTML = yearsWithIncome.toFixed(2)
@@ -64,13 +62,20 @@ const yearsWithRetirementIncome = () => {
   }
 }
 
+// the retirementCalculations function displays the three functions within the calculate button
 const retirementCalculations = () => {
   retirementBalance()
   retirementIncomePerYear()
   yearsWithRetirementIncome()
 }
 
-const retirementBalanceObject = retirementBalance()
+const suggestions = () => {
+  let currentAge = document.getElementById('currentAge').value
+  
+  if (currentAge < 30) {
+    return 'You should aim to save about the amount of your yearly income your income by age 30'
+  }
+}
 
 // calling function
 console.log(retirementBalance())

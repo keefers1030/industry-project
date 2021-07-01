@@ -12,12 +12,18 @@ nav{
   background-color: rgb(0, 173, 238);
 }
 
+h3{
+ font-size: 18px;
+ text-align: center;
+}
+
 main h4 {
   text-align: center;
   color: inherit;
   padding-left: 200px;
   padding-right: 200px;
-  font-size: 20px;
+  padding-top: 20px;
+  font-size: 24px;
 }
 
 .header {
@@ -146,7 +152,7 @@ form {
   background-color: white;
   width: 100%;
   margin-left: 250px;
-  padding: 2rem;
+  padding-left: 1rem;
   appearance: none;
   outline: none;
 }
@@ -158,6 +164,7 @@ form .i1, .i2, .i3 {
 .container3 h2 {
   color: rgb(59, 59, 59);
   font-size: 18px;
+
 }
 
 .submit{
@@ -190,7 +197,35 @@ button {
   -webkit-font-smoothing: antialiased;
 }
 
-.boldp {
+input[type=button],
+button:hover {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 24px;
+  border: 0px;
+  padding: 13px 16px;
+  margin-top: 0px;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgb(255, 163, 42);
+  color: rgb(255, 255, 255);
+  box-shadow: rgb(133 127 120 / 24%) 0px 8px 24px;
+  outline: transparent solid 1px;
+  margin-bottom: 0px;
+  align-self: stretch;
+  line-height: 1.4;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container4{
+  margin: 2rem;
+}
+.boldp 
+{
   font-weight: bold;
   color: rgb(0, 173, 238);
 }
@@ -241,4 +276,69 @@ input[type=number] {
   padding: .5rem;
   font-size: 16px;
   background-color: #f3f0f0;
+}
+
+/**
+ * Tooltip Styles
+ */
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  border-bottom: 1px dotted rgba(0, 173, 238, 0.5);
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid #000;
+  border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }
