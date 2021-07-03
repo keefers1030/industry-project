@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 let chartRetirementSavings = parseInt(document.getElementById('retirementSavings').value)
 let chartRetirementBalance = 0
@@ -18,19 +19,23 @@ const retirementBalance = () => {
   let retirementSavings = document.getElementById('retirementSavings').value
   let assetsReturn = (document.getElementById('assetsReturn').value) / 100
 
-  let balance = (
-    (currentIncome * incomeContributed) *
-    (((1 + assetsReturn) ** (retirementAge - currentAge)) - ((1 + incomeIncrease) ** (retirementAge - currentAge))) /
-    (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn) ** (retirementAge - currentAge)))
-  )
+  try {
+    let balance = (
+      (currentIncome * incomeContributed) *
+      (((1 + assetsReturn) ** (retirementAge - currentAge)) - ((1 + incomeIncrease) ** (retirementAge - currentAge))) /
+      (assetsReturn - incomeIncrease) + (retirementSavings * ((1 + assetsReturn) ** (retirementAge - currentAge)))
+    )
 
-  if (isNaN(balance)) {
-    document.getElementById('balance').innerHTML = ' '
-  }
-  else {
-    document.getElementById('balance').innerHTML = balance.toFixed(2)
+    if (isNaN(balance)) {
+      document.getElementById('balance').innerHTML = ' '
+    }
+    else {
+      document.getElementById('balance').innerHTML = balance.toFixed(2)
 
-    return balance.toFixed(2)
+      return balance.toFixed(2)
+    }
+  } catch (error) {
+    console.error(error)
   }
 }
 
@@ -43,16 +48,19 @@ const renderChart = () => {
 
   let chart = new CanvasJS.Chart(chartElement, {
     animationEnabled: true,
-    theme: 'light2',
+    theme: 'light1',
     title: {
       text: 'Retirement Balance',
-      fontfamily: 'Montserrat'
+      fontFamily: 'Montserrat, sans-serif'
     },
     axisX: {
-      title: 'Age'
+      title: 'Age',
+      gridColor: '#AAAAAA ',
     },
     axisY: {
-      title: 'Money Saved'
+      title: 'Money Saved',
+      gridColor: '#AAAAAA ',
+
     },
     data: [{
       type: 'line',
@@ -78,15 +86,20 @@ const retirementIncomePerYear = () => {
   let negativeYearsRetired = -yearsRetired
   let assetsReturn = (document.getElementById('assetsReturn').value) / 100
 
-  let incomeBalance = (((assetsReturn * retirementBalance()) / (1 - (1 + assetsReturn) ** negativeYearsRetired)))
+  try {
+    let incomeBalance = (((assetsReturn * retirementBalance()) / (1 - (1 + assetsReturn) ** negativeYearsRetired)))
 
-  if (isNaN(incomeBalance)) {
-    document.getElementById('incomeBalance').innerHTML = ' '
+    if (isNaN(incomeBalance)) {
+      document.getElementById('incomeBalance').innerHTML = ' '
+    }
+    else {
+      document.getElementById('incomeBalance').innerHTML = incomeBalance.toFixed(2)
+
+      return incomeBalance.toFixed(2)
+    }
   }
-  else {
-    document.getElementById('incomeBalance').innerHTML = incomeBalance.toFixed(2)
-
-    return incomeBalance.toFixed(2)
+  catch (error) {
+    console.log(error)
   }
 }
 
@@ -95,46 +108,90 @@ const yearsWithRetirementIncome = () => {
   let assetsReturn = (document.getElementById('assetsReturn').value) / 100
   let anticSpending = document.getElementById('anticSpending').value
 
-  const yearsWithIncome = (Math.log((anticSpending / (anticSpending - retirementBalance() * assetsReturn))) / Math.log(1 + assetsReturn))
+  try {
+    const yearsWithIncome = (Math.log((anticSpending / (anticSpending - retirementBalance() * assetsReturn))) / Math.log(1 + assetsReturn))
 
-  if (isNaN(yearsWithIncome)) {
-    document.getElementById('yearsWithIncome').innerHTML = '>90'
+    if (isNaN(yearsWithIncome)) {
+      document.getElementById('yearsWithIncome').innerHTML = '>90'
+    }
+    else {
+      document.getElementById('yearsWithIncome').innerHTML = yearsWithIncome.toFixed(2)
+
+      return yearsWithIncome.toFixed(2)
+    }
   }
-  else {
-    document.getElementById('yearsWithIncome').innerHTML = yearsWithIncome.toFixed(2)
-
-    return yearsWithIncome.toFixed(2)
+  catch (error) {
+    console.log(error)
   }
 }
 
-// const suggestions = () => {
-//   let currentAge = document.getElementById('currentAge').value
-//   let suggestion1 = document.querySelector('#suggestion1')
+const suggestions = () => {
+  let currentAge = document.getElementById('currentAge').value
+  let currentIncome = document.getElementById('currentIncome').value
+  let suggestion1 = document.getElementById('suggestion1').value
 
-//   if (currentAge < 30) {
-//     let suggestion = suggestion1.innerHTML = 'You should aim to save about' `${currentIncome}` 'of your yearly income by age 30'
+  if (currentAge <= 29) {
+    let suggestion = `You should aim to save about ${currentIncome} of your yearly income by age 30`
 
-//     return suggestion
-//   }
-// }
+    document.getElementById('suggestion1').innerHTML = suggestion
+  }
+  else if (currentAge >= 30 && currentAge <= 39) {
+    let suggestion = `You should aim to save about ${(currentIncome * 2)} of your yearly income by age 40`
+
+    document.getElementById('suggestion1').innerHTML = suggestion
+  }
+  else if (currentAge >= 40 && currentAge <= 49) {
+    let suggestion = `You should aim to save about ${(currentIncome * 2)} of your yearly income by age 50`
+
+    document.getElementById('suggestion1').innerHTML = suggestion
+  }
+
+  else if (currentAge >= 50 && currentAge <= 59) {
+    let suggestion = `You should aim to save about $${(currentIncome * 3)} of your yearly income by age 60`
+
+    document.getElementById('suggestion1').innerHTML = suggestion
+  }
+
+  if(incomeContributed <= 10) {
+    let suggestion = `You should aim to save about $${(currentIncome * 3)} of your yearly income by age 60`
+
+    document.getElementById('suggestion1').innerHTML = suggestion
+  }
+}
+
+const suggestionIncome = () => {
+    let incomeContributed = (document.getElementById('incomeContributed').value) / 100
+
+    if(incomeContributed < 10) {
+    let suggestion = `You should aim to save at least 10% of your income each year`
+
+    document.getElementById('suggestion2').innerHTML = suggestion
+
+  }
+}
 
 // the retirementCalculations function displays the functions within the calculate button and renders the chart
 const retirementCalculations = () => {
-  retirementBalance()
-  retirementIncomePerYear()
-  yearsWithRetirementIncome()
-  chartRetirementSavings = parseInt(document.getElementById('retirementSavings').value)
-  chartRetirementBalance = parseInt(retirementBalance())
-  chartCurrentAge = parseInt(document.getElementById('currentAge').value)
-  chartRetirementAge = parseInt(document.getElementById('retirementAge').value)
-  renderChart()
-  // suggestions()
-
+  try {
+    retirementBalance()
+    retirementIncomePerYear()
+    yearsWithRetirementIncome()
+    chartRetirementSavings = parseInt(document.getElementById('retirementSavings').value)
+    chartRetirementBalance = parseInt(retirementBalance())
+    chartCurrentAge = parseInt(document.getElementById('currentAge').value)
+    chartRetirementAge = parseInt(document.getElementById('retirementAge').value)
+    renderChart()
+    suggestions()
+    suggestionIncome()
+  }
+  catch (error) {
+    console.log(error)
+  }
 }
 
 // calling functions
-console.log(retirementBalance())
-console.log(retirementIncomePerYear())
-console.log(yearsWithRetirementIncome())
-console.log(retirementCalculations())
-console.log(suggestions())
+// console.log(retirementBalance())
+// console.log(retirementIncomePerYear())
+// console.log(yearsWithRetirementIncome())
+// console.log(retirementCalculations())
+// console.log(suggestions())

@@ -72,31 +72,32 @@
                 <div id="chartContainer" style="height: 270px; width: 100%;">
                 </div>
                 <div class="live-data">
-			        <h3><label id="yearsWithIncome">...</label> years with retirement income</h3> 
-		            <h3>You can expect to save a total of $<label  id="balance">...</label> for retirement
-                    <br>which will give you $<label  id="incomeBalance">...</label> to spend each year
-                    <!-- <h4><label id="suggestion1">...</h3></label> -->
+			        <h3 class="suggestions"><label id="yearsWithIncome"></label> years with retirement income <br/> 
+		            You can expect to save a total of $<label  id="balance"></label> for retirement
+                    <br>which will give you $<label  id="incomeBalance"></label> to spend each year
                     </div>
             </div>
         </form>
-
-            <div class= "submit">
-             <h2 id="balance"></h2>
+        <div class= "submit">
             <button class="button" id="renderButton" type="button" onclick="retirementCalculations()">Calculate</button>
+        </div>
+    <!-- <div class="questions">
+        <p>Questions? Visit <b class="boldp">frequently asked questions</b>.</p>
+    </div> -->
 
-            </div>
+    <img class="wave" src="images/Blue_Top_Wave_2.svg">
+<div class="suggestion-container">
+    <h3 class="suggestions2">Try these tips to improve your savings potential:</br></br>
+        <label id="suggestion1" style="font-weight:400"></label><br/>
+        <label id="suggestion2" style="font-weight:400"></label></h3>
+</div>
     </main>
 
-    <div class="questions">
-        <p>Questions? Visit <b class="boldp">frequently asked questions</b>.</p>
-    </div>
         <footer class="footer">
             <br>
             <p>Self. Financial 2021</p>
         </footer>
 
-    
-    <!-- Very import, canvas JS must be loaded before our custom JS -->
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script src="calculations.js"></script>
 </body>
