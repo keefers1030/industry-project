@@ -75,6 +75,7 @@
 			        <h3><label id="yearsWithIncome">...</label> years with retirement income</h3> 
 		            <h3>You can expect to save a total of $<label  id="balance">...</label> for retirement
                     <br>which will give you $<label  id="incomeBalance">...</label> to spend each year
+                    <!-- <h4><label id="suggestion1">...</h3></label> -->
                     </div>
             </div>
         </form>
@@ -82,6 +83,7 @@
             <div class= "submit">
              <h2 id="balance"></h2>
             <button class="button" id="renderButton" type="button" onclick="retirementCalculations()">Calculate</button>
+
             </div>
     </main>
 
@@ -93,48 +95,9 @@
             <p>Self. Financial 2021</p>
         </footer>
 
-    <script src="calculations.js"></script>
-        <script type="text/javascript">
-        window.onload = function() {
-            
-            var dps = []
-
-            var chart = new CanvasJS.Chart("chartContainer", {
-                title: {
-                    text: "Retirement Balance",
-                    fontFamily: "Montserrat"
-                },
-                axisX: {title: "Age"},
-                axisY: {title: "Savings"},
-                data: [{
-                    type: "line",
-                    dataPoints: dps
-                }]
-            });
-
-            function addDataPointsAndRender() {
-                xValue = Number(document.getElementById("currentAge").value);
-                yValue = Number(document.getElementById("retirementSavings").value);
-                secondXValue = Number(document.getElementById("retirementAge").value);
-                secondYValue = Number(document.getElementById("balance").value);
-                dps.push({
-                    x: xValue,
-                    y: yValue, markerColor: "orange", markerType: "triangle", lineColor: "#FF8C00"
-                },
-                {
-                    x: secondXValue,
-                    y: secondYValue, markerColor: "orange", markerType: "triangle"
-                }
-                ),
-                chart.render();
-            }
-
-
-            var renderButton = document.getElementById("renderButton");
-            renderButton.addEventListener("click", addDataPointsAndRender);
-        }
-    </script>
-    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     
+    <!-- Very import, canvas JS must be loaded before our custom JS -->
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="calculations.js"></script>
 </body>
 </html>
