@@ -152,7 +152,7 @@ const suggestions = () => {
     document.getElementById('suggestion1').innerHTML = suggestion
   }
 
-  if(incomeContributed <= 10) {
+  if (incomeContributed <= 10) {
     let suggestion = `You should aim to save about $${(currentIncome * 3)} of your yearly income by age 60`
 
     document.getElementById('suggestion1').innerHTML = suggestion
@@ -160,19 +160,30 @@ const suggestions = () => {
 }
 
 const suggestionIncome = () => {
-    let incomeContributed = (document.getElementById('incomeContributed').value) / 100
+  let incomeContributed = (document.getElementById('incomeContributed').value) / 100
 
-    if(incomeContributed < 10) {
-    let suggestion = `You should aim to save at least 10% of your income each year`
+  if (incomeContributed < 10) {
+    let suggestion = 'You should aim to save at least 10% of your income each year'
 
     document.getElementById('suggestion2').innerHTML = suggestion
-
   }
 }
 
 // the retirementCalculations function displays the functions within the calculate button and renders the chart
 const retirementCalculations = () => {
-  try {
+  let currentAge = document.getElementById('currentAge').value
+  let anticSpending = document.getElementById('anticSpending').value
+  let currentIncome = document.getElementById('currentIncome').value
+  let incomeIncrease = (document.getElementById('incomeIncrease').value) / 100
+  let incomeContributed = (document.getElementById('incomeContributed').value) / 100
+  let retirementAge = document.getElementById('retirementAge').value
+  let retirementSavings = document.getElementById('retirementSavings').value
+  let assetsReturn = (document.getElementById('assetsReturn').value) / 100
+
+  if (!currentAge || !retirementAge || !currentIncome || !incomeIncrease || !incomeContributed || !retirementSavings ||
+    !assetsReturn || !anticSpending) alert('Please fill out all fields')
+
+  else try {
     retirementBalance()
     retirementIncomePerYear()
     yearsWithRetirementIncome()
