@@ -131,17 +131,17 @@ const suggestions = () => {
   let suggestion1 = document.getElementById('suggestion1').value
 
   if (currentAge <= 29) {
-    let suggestion = `You should aim to save about ${currentIncome} of your yearly income by age 30`
+    let suggestion = `You should aim to save about $${currentIncome} of your yearly income by age 30`
 
     document.getElementById('suggestion1').innerHTML = suggestion
   }
   else if (currentAge >= 30 && currentAge <= 39) {
-    let suggestion = `You should aim to save about ${(currentIncome * 2)} of your yearly income by age 40`
+    let suggestion = `You should aim to save about $${(currentIncome * 2)} of your yearly income by age 40`
 
     document.getElementById('suggestion1').innerHTML = suggestion
   }
   else if (currentAge >= 40 && currentAge <= 49) {
-    let suggestion = `You should aim to save about ${(currentIncome * 2)} of your yearly income by age 50`
+    let suggestion = `You should aim to save about $${(currentIncome * 2)} of your yearly income by age 50`
 
     document.getElementById('suggestion1').innerHTML = suggestion
   }
