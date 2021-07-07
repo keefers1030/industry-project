@@ -141,23 +141,18 @@ const suggestions = () => {
     document.getElementById('suggestion1').innerHTML = suggestion
   }
   else if (currentAge >= 40 && currentAge <= 49) {
-    let suggestion = `You should aim to save about $${(currentIncome * 2)} of your yearly income by age 50`
+    let suggestion = `You should aim to save about $${(currentIncome * 3)} of your yearly income by age 50`
 
     document.getElementById('suggestion1').innerHTML = suggestion
   }
 
   else if (currentAge >= 50 && currentAge <= 59) {
-    let suggestion = `You should aim to save about $${(currentIncome * 3)} of your yearly income by age 60`
-
-    document.getElementById('suggestion1').innerHTML = suggestion
-  }
-
-  if (incomeContributed <= 10) {
-    let suggestion = `You should aim to save about $${(currentIncome * 3)} of your yearly income by age 60`
+    let suggestion = `You should aim to save about $${(currentIncome * 4)} of your yearly income by age 60`
 
     document.getElementById('suggestion1').innerHTML = suggestion
   }
 }
+
 
 const suggestionIncome = () => {
   let incomeContributed = (document.getElementById('incomeContributed').value) / 100
@@ -194,6 +189,11 @@ const retirementCalculations = () => {
     renderChart()
     suggestions()
     suggestionIncome()
+
+    const suggestionsContainer = document.getElementById('suggestion-container')
+    const liveData = document.getElementById('livedata')
+    suggestionsContainer.style.display = 'block';
+    liveData.style.display = 'block';
   }
   catch (error) {
     console.log(error)
